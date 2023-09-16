@@ -9,7 +9,8 @@ pipeline {
                 sh '''
                     
                     ssh jenkins@20.77.125.95
-                    ls'''
+                    ls
+                    pdw'''
             }
         }
     }
