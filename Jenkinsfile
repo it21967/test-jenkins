@@ -3,24 +3,17 @@ pipeline {
 
 
     stages {
-        stage('Build') {
-            steps {
-                // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/it21967/test-jenkins.git'
-
-                
-            }
-        }
         
         stage('Test') {
             steps {
                 sh '''
-                    python3 -m venv myvenv
-                    source myvenv/bin/activate
-                    pip install -r requirements.txt
-                    cd myproject
-                    cp myproject/.env.example myproject/.env
-                    ./manage.py test'''
+                    
+                    sudo su
+                    su jenkins
+                    ssh jenkins@20.77.125.95
+                    sudo apt install openjdk-17-jre-headless
+                    sudo timeshift --restore --snapshot '2023-09-16_21-33-53' --target /dev/sda1
+                    java --version'''
             }
         }
     }
