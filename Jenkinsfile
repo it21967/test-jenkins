@@ -10,7 +10,7 @@ pipeline {
                     
                     ssh jenkins@20.77.125.95
                     ls
-                    pdw'''
+                    pwd'''
             }
         }
     }
